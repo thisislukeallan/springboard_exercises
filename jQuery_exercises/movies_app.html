@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="movies_app.css">
+    <title>Movies App!</title>
+</head>
+<body>
+    <h1>My Movie Ratings!</h1>
+    <div id="movie-rating">
+        <input id="title" type="text" minlength="2" placeholder="Enter Movie Title">
+        <input id="rating" type="number" min="0" max="10" placeholder="Enter Rating (0-10)">
+    </div>
+    <button id="submit">Submit!</button>
+    <table id="stored-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Remove</th>
+            </tr>   
+        </thead>
+        <tbody id="movie-list">
+
+        </tbody>
+        
+    </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+
+        // FIX HACKY VERSION OF LOCAL STORAGE
+
+        let table = document.getElementById("stored-table");
+        let storedTable = localStorage.getItem('stored-table');
+
+        if (storedTable) {
+            table.innerHTML = storedTable;
+            $(".remove-button").on("click", function() {
+                    $(this).parent().parent().remove();
+                });
+        };
+
+        $("#submit").on("click", function() {
+            let movieTitle = $("#title").val();
+            let movieRating = $("#rating").val();
+            if (movieTitle.length < 2) {
+                alert("Movie title must be at least 2 characters!");
+                $("input").eq(0).focus();
+            } else if (movieRating < 0 || movieRating > 10) {
+                alert("Movie rating must be between 0 - 10!");
+                $("input").eq(1).focus();
+            } else {
+                $("#movie-list").append($("<tr>")
+                    .append($("<td>").append(movieTitle))
+                    .append($("<td>").append(movieRating))
+                    .append($("<td>").append($("<button>").append("Remove").attr("class", "remove-button")))
+                );
+
+                $(".remove-button").on("click", function() {
+                    $(this).parent().parent().remove();
+                });
+
+                $("input").val("");
+                $("input").eq(0).focus();
+            };
+
+            localStorage.setItem("stored-table", table.innerHTML);
+        });
+        
+        
+        
+    </script>
+</body>
+</html>
