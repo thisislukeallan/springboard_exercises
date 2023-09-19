@@ -1,0 +1,23 @@
+Part One: Solidify Terminology
+    What is HTTP?
+        Hyper Text Transfer Protocol - set of rules for a browser to communicate with a server
+    What is a URL?
+        Uniform Resource Locators - a browser's version of a web address
+    What is DNS?
+        Domain Name System - a system of finding resources from a server or server system with "human language"
+    What is a query string?
+        Typically used in GET method to request information from the server
+    What are two HTTP verbs and how are they different?
+        1. GET - a request with no side effects - "getting" information from the server without affecting it
+        2. POST - a request with side effects - sending information to the server and changing the data
+    What is an HTTP request?
+        A request to retrieve information from a server through the browser
+    What is an HTTP response?
+        The server's answer to a request, whether the data was found, devivered correctly, etc
+    What is an HTTP header? Give a couple examples of request and response headers you have seen
+        HTTP headers are the specific types of information that are provided with requests/responses
+            Examples: Request - Hostname, date, language
+                      Response - content type (text/html), cookies, cache information
+    What are the processes that happen when you type "http://somesite.com/some/page.html" into a browser
+        http protocol is referenced, calling to server to "GET" data from sources from the IP address, namely /some/,
+        followed by the /page.html code which will be displayed on screen

@@ -27,7 +27,7 @@ body {
 /* pieces are div within game table cells: draw as colored circles */
 #player-colors {
   display: flex;
-  flex-direction: column;
+  flex-direction: colugit mn;
   align-items: center;
   justify-content: center;
 }
