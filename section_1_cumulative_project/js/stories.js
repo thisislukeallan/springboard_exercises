@@ -134,11 +134,11 @@ async function removeMyStory(evt) {
 
 /** Add Favorite star icon */
 
-function addFavoriteStar(storyList){
-  // console.debug("addFavoriteStar");
+function addFavoriteStar(storyList) {
+  console.debug("addFavoriteStar");
 
   /** favStatus: far = star outline (no) / fas = filled in star (yes) */
-  for(let story of storyList.children()) {
+  for (let story of storyList.children()) {
     const $story = $(story);
 
     let favStatus = "far";
@@ -181,11 +181,11 @@ async function toggleFavorite() {
   const storyId = $(this).parent().parent().attr("id");
 
   if(favoriteCheck(storyId)) {
-    await currentUser.removeFavoriteStar(storyId);
+    await currentUser.removeFavoriteStory(storyId);
 
     $(this).addClass("far").removeClass("fas");
   } else{
-    await currentUser.addFavoriteStar(storyId, storyList);
+    await currentUser.addFavoriteStory(storyId, storyList);
 
     $(this).addClass("fas").removeClass("far");
   }

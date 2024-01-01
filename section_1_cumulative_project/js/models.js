@@ -220,7 +220,7 @@ class User {
     }
   }
 
-  async addFavoriteStar(storyId) {
+  async addFavoriteStory(storyId) {
     const token = this.loginToken;
     const username = this.username;
 
@@ -233,7 +233,7 @@ class User {
     this.favorites.push(storyToAdd);
   }
 
-  async removeFavoriteStar(storyId) {
+  async removeFavoriteStory(storyId) {
     const token = this.loginToken;
     const username = this.username;
     const idToRemove = storyId;
